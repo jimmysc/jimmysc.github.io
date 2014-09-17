@@ -38,3 +38,12 @@ The documentation website at <http://jekyllbootstrap.com> is maintained at https
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
+
+## 淘宝镜像
+\curl -sSL https://get.rvm.io | bash -s stable
+source /Users/jimmy/.rvm/scripts/rvm
+gem install bundler
+
+http://ruby.taobao.org/
+
+http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/
