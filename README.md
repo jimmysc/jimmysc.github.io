@@ -47,3 +47,8 @@ gem install bundler
 http://ruby.taobao.org/
 
 http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/
+
+## mac10.9
+删除xcode
+sudo ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future gem install jekyll
+http://v5sheji.com/archives/mac-xcode5-1-gem-jekyll-error.html

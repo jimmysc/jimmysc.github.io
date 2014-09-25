@@ -47,6 +47,8 @@ We need to clean up the themes, make theme usage guides with theme-specific mark
 ## Blog 资料 
 [开通github个人站点](https://pages.github.com/)
 
+[github page](https://help.github.com/categories/20/articles)
+
 [github blog模板](https://github.com/plusjade/jekyll-bootstrap/)
 
 [jekyll使用说明](http://www.zhanxin.info/jekyll/2013-08-07-jekyll-basic-usage.html)
