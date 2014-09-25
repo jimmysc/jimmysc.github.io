@@ -45,5 +45,20 @@ We need to clean up the themes, make theme usage guides with theme-specific mark
 
 
 ## Blog 资料 
-**abc**
-*a*
+[开通github个人站点](https://pages.github.com/)
+
+[github blog模板](https://github.com/plusjade/jekyll-bootstrap/)
+
+[jekyll使用说明](http://www.zhanxin.info/jekyll/2013-08-07-jekyll-basic-usage.html)
+
+[jekyll添加文章类目](http://pizn.github.io/2012/02/23/use-category-plugin-for-jekyll-blog.html)
+
+[mac10.9安装jekyll错误](http://v5sheji.com/archives/mac-xcode5-1-gem-jekyll-error.html)
+
+[jekyll](http://jekyllrb.com/docs/posts/)
+
+[liquid](https://github.com/shopify/liquid/wiki/liquid-for-designers)
+
+
+## 蒋海滔的学习笔记
+[海涛笔记](https://code.google.com/p/hatter-source-code/wiki/Study_CPU_Intel)
