@@ -1,8 +1,8 @@
 ---
 layout: post
 category : jvm
-tagline: "学习本文中的工具，快速定位问题"
-tags : [java, jvm, jstat]
+tagline: "学习本文中JVM工具，协助定位问题"
+tags : [jstat,mmap,top,jstack]
 ---
 {% include JB/setup %}
 
@@ -25,9 +25,8 @@ tags : [java, jvm, jstat]
 
 ## top
 **用处:** 实时显示linux中处理器的使用情况，内核管理的任务，及CPU，内存的使用率
-http://www.jb51.net/LINUXjishu/34604.html
 
-经常会用到的10进制转成16进制：
+10进制转成16进制方法：
 
 	 echo 'ibase=10;obase=16;3845' | bc
 
@@ -42,7 +41,7 @@ http://www.jb51.net/LINUXjishu/34604.html
 	3.jstack -l <pid>
 
 ###### 1.2 线程内容
-		"BusyThread-99" prio=5 tid=0x00007fd2d2839000 nid=0x11603 waiting on condition [0x000000011e4d7000]
+	"BusyThread-99" prio=5 tid=0x00007fd2d2839000 nid=0x11603 waiting on condition [0x000000011e4d7000]
 	   java.lang.Thread.State: TIMED_WAITING (sleeping)
 		at java.lang.Thread.sleep(Native Method)
 		at com.jimmysc.thread.busy.BusyThread1.readFileFormRemote(BusyThread1.java:18)
@@ -126,13 +125,6 @@ http://www.jb51.net/LINUXjishu/34604.html
 	
 	1).Thread-1和Thread-0的线程状态都是waiting for monitor entry，表示都是在Entry Set队列中，都在等待拿到Monitor，多执行几次jstack -l <pid> 线程栈的信息都一样，说明无法拿到monitor；
 	2).线程栈的提示信息显示BLOCKED，同时Thread-0在waiting to lock <0x00000007d57a7008> ；Thread-0又locked <0x00000007d5655148> ，Thread-1在waiting to lock <0x00000007d5655148>，locked <0x00000007d57a7008>，都锁住对方需要的锁，同时又等待对方释放锁，造成了死锁
-
-
-jstack分析 http://www.blogjava.net/jzone/articles/303979.html
-
-线程解释 http://blog.csdn.net/a43350860/article/details/8134234
-
-
 
 
 ## tsar
