@@ -61,6 +61,8 @@ We need to clean up the themes, make theme usage guides with theme-specific mark
 
 [liquid](https://github.com/shopify/liquid/wiki/liquid-for-designers)
 
+[镜像切换到taobao](http://ruby.taobao.org/)
+
 
 ## 蒋海滔的学习笔记
 [海涛笔记](https://code.google.com/p/hatter-source-code/wiki/Study_CPU_Intel)
