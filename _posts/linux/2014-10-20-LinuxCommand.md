@@ -6,23 +6,26 @@ tag: [linux]
 ---
 {% include JB/setup %}
 
-## awk命令 
-强大的文本分析工具，工作流程是按行读取，以空格为默认分隔符将每行切分，切开的部分在进行各种分析处理
-
-使用语法
+### awk命令 
+	是一种编程语言，用于linux/unix下的文本和数据处理，数据来源于标准输入，一个或多个文件，其他命令的输出。
 	
-	awk '{pattern action}' input-file}
+	处理流程：逐行扫描文件，从第一行到最后一行，寻找匹配的行，并在该行做你想做的事；如果没有指定action，则直接输出；如果没有指定pattern，则所有行被处理。
 
-调用方式
+
+### 使用语法
+	
+	awk '{pattern action}' input-file(s)}
+
+### 使用方式
 	
 	1.命令方式
-		awk [-F fs] 'commands' input-file
+		awk [-F fs] 'commands' input-file(s)
 	2.脚本方式
 		#!/bin/awk
 	3.文件方式
 		awk -f awk-script-file input-file
 
-好好实践-1.命令方式
+### 小试牛刀
 
 	/etc/passwd的数据内容格式
 	nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false
@@ -50,9 +53,67 @@ tag: [linux]
 	
 	6.统计某个文件夹下文件大于1M
 		ls -l |awk '{if ($5 > 1024*1024) {print $9" "$5/1024/1024, "M"}}' 
-		ls -l /home/admin/work |awk '{if ($5 > 1024*1024) {print $9" "$5/1024/1024, "M"}}' 				
+		ls -l /home/admin/work |awk '{if ($5 > 1024*1024) {print $9" "$5/1024/1024, "M"}}' ###  过滤记录		
+	<	awk -F ":" '{if($3 < 1) print $1}' /etc/passwd
+	<=	awk -F ":" '{if($3 <= 1) print $1}' /etc/passwd
+	>	awk -F ":" '{if($3 > 1) print $1}' /etc/passwd
+	>=	awk -F ":" '{if($3 >= 1) print $1}' /etc/passwd
+	!=	awk -F ":" '{if($3 != 1) print $1}' /etc/passwd
+	==	awk -F ":" '{if($3 == 1) print $1}' /etc/passwd
+	~	awk -F ":" '{if($1~/root/) print $1}' /etc/passwd
+	!~	awk -F ":" '{if($1!~/root/) print $1}' /etc/passwd
+	&&	awk -F ":" '{if($3 > 2 && $3 != 4) print $1 , $3}' /etc/passwd
+	||	awk -F ":" '{if($3 > 2 || $3 == 4) print $1 , $3}' /etc/passwd
 
 
+### 内置变量
+	$0 当前行
+	$1...$n	当前记录的第N个字段，字段间由FS分隔
+	ARGC	命令行参数个数
+	AGRV	命令行参数排序
+	EVRIRON	
+	FILENAME	awk浏览的文件名
+	FNR	当前记录数，各个文件自己的行号
+	FS	输入域分隔符,默认空格或tab
+	NF	当前记录中的字段个数，也就是列数
+	NR	已读出的记录数，就是行号，从1开始，如果有多个文件，不断累加
+	OFS	输出的字段分隔符，默认空格
+	ORS	输出记录分隔符，默认换行 awk -F ":" ' END {print ORS}' /etc/passwd
+	RS	输入的记录分隔符，默认换行 awk -F ":" ' END {print RS}' /etc/passwd
+	NF	浏览记录的域个数 awk -F ":" ' END {print NF}' /etc/passwd
 
+### 字符串匹配
+> 匹配/etc/passwd中第1列是root的行及内容
+
+	awk -F ":"  '$1 ~ /root/ {print NR, $0}' /etc/passed
+	12 root:*:0:0:System Administrator:/var/root:/bin/sh
+	62 _cvmsroot:*:212:212:CVMS Root:/var/empty:/usr/bin/false
+
+> 匹配/etc/passwd行中包含root的行及内容
+
+	awk '/root/ {print NR,$0}' /etc/passwd
+	12 root:*:0:0:System Administrator:/var/root:/bin/sh
+	13 daemon:*:1:1:System Services:/var/root:/usr/bin/false
+	62 _cvmsroot:*:212:212:CVMS Root:/var/empty:/usr/bin/false
+
+### 拆分文件
+> 相同的列归类到一个文件中
+
+	ps aux | awk 'NR !=1{print > $1}'
+	17926830 -rw-r--r--   1 jimmy  staff    128 11  4 23:37 _appleevents
+	17926826 -rw-r--r--   1 jimmy  staff     98 11  4 23:37 _coreaudiod
+	17926831 -rw-r--r--   1 jimmy  staff    100 11  4 23:37 _locationd
+	17926834 -rw-r--r--   1 jimmy  staff    101 11  4 23:37 _mdnsresponder
+	17926828 -rw-r--r--   1 jimmy  staff    100 11  4 23:37 _netbios
+	17926833 -rw-r--r--   1 jimmy  staff     99 11  4 23:37 _networkd
+	17926829 -rw-r--r--   1 jimmy  staff    446 11  4 23:37 _spotlight
+	17926832 -rw-r--r--   1 jimmy  staff    172 11  4 23:37 _usbmuxd
+	17926825 -rw-r--r--   1 jimmy  staff    199 11  4 23:37 _windowserver
+	17926824 -rw-r--r--   1 jimmy  staff  49272 11  4 23:37 jimmy
+	17926827 -rw-r--r--   1 jimmy  staff   7158 11  4 23:37 root
+
+http://coolshell.cn/articles/9070.html/comment-page-1#comments
+http://blog.csdn.net/ithomer/article/details/8477842
+http://blog.csdn.net/huzia/article/details/37056379
 
 http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html

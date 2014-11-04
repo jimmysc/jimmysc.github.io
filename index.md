@@ -46,6 +46,9 @@ tagline: Jimmy Study
 ###### 6.mac10.9安装jekyll错误
 [错误链接](http://v5sheji.com/archives/mac-xcode5-1-gem-jekyll-error.html)
 
+###### 7.markdown
+http://www.ituring.com.cn/article/775
+
 
 
 
