@@ -1,57 +1,22 @@
----
-layout: page
-title: 首页
-tagline: Jimmy Study
----
-{% include JB/setup %}
+### Welcome to GitHub Pages.
+This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:
 
+```
+$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+```
 
-## 快速入口
+If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.
 
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+### Designer Templates
+We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.
 
-## 友情链接
-[hatter](https://code.google.com/p/hatter-source-code/wiki/Study_CPU_Intel)
+### Rather Drive Stick?
+If you prefer to not use the automatic generator, push a branch named `gh-pages` to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.
 
-[CoolShell](http://coolshell.cn/)
+### Authors and Contributors
+You can @mention a GitHub username to generate a link to their profile. The resulting `<a>` element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (@defunkt), PJ Hyett (@pjhyett), and Tom Preston-Werner (@mojombo) founded GitHub.
 
-[并发编程](http://ifeve.com/java-concurrency-thread-directory/)
-
-## 帮助
-
-###### 1.切换镜像，解决下载问题
-
-[镜像切换到taobao](http://ruby.taobao.org/)
-
-###### 2.创建Github Website
-
-[如何创建](https://pages.github.com/)
-
-###### 3.选择Website template
-
-[jekyll-bootstrap](https://github.com/plusjade/jekyll-bootstrap/)
-
-###### 4.使用jekyll将markdown转化成静态博客网站
-[jekyll](http://jekyllrb.com/docs/posts/)
-
-[jekyll添加文章类目](http://pizn.github.io/2012/02/23/use-category-plugin-for-jekyll-blog.html)
-
-###### 5.liquid语法
-[liquid](https://github.com/shopify/liquid/wiki/liquid-for-designers)
-
-###### 6.mac10.9安装jekyll错误
-[错误链接](http://v5sheji.com/archives/mac-xcode5-1-gem-jekyll-error.html)
-
-###### 7.markdown
-http://www.ituring.com.cn/article/775
-
-
-
-
-
-
-
+### Support or Contact
+Having trouble with Pages? Check out the documentation at http://help.github.com/pages or contact support@github.com and we’ll help you sort it out.
